@@ -33,15 +33,7 @@
                     <span>{{ $column->getTitle() }}</span>
 
                     <span class="relative flex items-center">
-                        @if ($direction === 'asc')
-                            <x-heroicon-o-chevron-up class="w-3 h-3 group-hover:opacity-0" />
-                            <x-heroicon-o-chevron-down class="w-3 h-3 opacity-0 group-hover:opacity-100 absolute"/>
-                        @elseif ($direction === 'desc')
-                            <x-heroicon-o-chevron-down class="w-3 h-3 group-hover:opacity-0" />
-                            <x-heroicon-o-x-circle class="w-3 h-3 opacity-0 group-hover:opacity-100 absolute"/>
-                        @else
-                            <x-heroicon-o-chevron-up class="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        @endif
+
                     </span>
                 </button>
             @endunless
@@ -68,13 +60,7 @@
                     <span>{{ $column->getTitle() }}</span>
 
                     <span class="relative d-flex align-items-center">
-                        @if ($direction === 'asc')
-                            <x-heroicon-o-chevron-up class="laravel-livewire-tables-btn-smaller ms-1 "  />
-                        @elseif ($direction === 'desc')
-                            <x-heroicon-o-chevron-down class="laravel-livewire-tables-btn-smaller ms-1"  />
-                        @else
-                            <x-heroicon-o-chevron-up-down class="laravel-livewire-tables-btn-smaller ms-1" />
-                        @endif
+
                     </span>
                 </div>
             @endunless

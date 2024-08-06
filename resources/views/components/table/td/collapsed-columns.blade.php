@@ -18,31 +18,12 @@
                     x-cloak x-show="!currentlyReorderingStatus"
                     x-on:click.prevent="$dispatch('toggle-row-content', {'tableName': '{{ $tableName }}', 'row': {{ $rowIndex }}}); open = !open"
                 >
-                    <x-heroicon-o-plus-circle x-cloak x-show="!open" 
-                        {{ 
-                            $attributes->merge($this->getCollapsingColumnButtonExpandAttributes)
-                            ->class([
-                                'h-6 w-6' => $this->getCollapsingColumnButtonExpandAttributes['default-styling'] ?? true,
-                                'text-green-600' => $this->getCollapsingColumnButtonExpandAttributes['default-colors'] ?? true,
-                            ])
-                            ->except('default') 
-                        }}
-                     />
-                    <x-heroicon-o-minus-circle x-cloak x-show="open" 
-                        {{ 
-                            $attributes->merge($this->getCollapsingColumnButtonCollapseAttributes)
-                            ->class([
-                                'h-6 w-6' => $this->getCollapsingColumnButtonCollapseAttributes['default-styling'] ?? true,
-                                'text-yellow-600' => $this->getCollapsingColumnButtonCollapseAttributes['default-colors'] ?? true,
-                            ])
-                            ->except('default') 
-                        }}
-                    />
+
                 </button>
             @endif
         </td>
     @elseif ($component->isBootstrap())
-        <td x-data="{open:false}" wire:key="{{ $tableName }}-collapsingIcon-{{ $rowIndex }}-{{ md5(now()) }}" 
+        <td x-data="{open:false}" wire:key="{{ $tableName }}-collapsingIcon-{{ $rowIndex }}-{{ md5(now()) }}"
             {{
                 $attributes
                     ->class(['d-sm-none' => !$component->shouldCollapseAlways() && !$component->shouldCollapseOnTablet()])
@@ -57,24 +38,7 @@
                     x-on:click.prevent="$dispatch('toggle-row-content', {'tableName': '{{ $tableName }}', 'row': {{ $rowIndex }}});open = !open"
                     class="border-0 bg-transparent p-0"
                 >
-                    <x-heroicon-o-plus-circle x-cloak x-show="!open"  
-                        {{ 
-                            $attributes->merge($this->getCollapsingColumnButtonExpandAttributes)
-                            ->class([
-                                'laravel-livewire-tables-btn-lg text-success' => $this->getCollapsingColumnButtonExpandAttributes['default-colors'] ?? true,
-                            ])
-                            ->except('default') 
-                        }}
-                    />
-                    <x-heroicon-o-minus-circle x-cloak x-show="open" 
-                        {{ 
-                            $attributes->merge($this->getCollapsingColumnButtonExpandAttributes)
-                            ->class([
-                                'laravel-livewire-tables-btn-lg text-warning' => $this->getCollapsingColumnButtonExpandAttributes['default-colors'] ?? true,
-                            ])
-                            ->except('default') 
-                        }}
-                    />
+
                 </button>
             @endif
         </td>

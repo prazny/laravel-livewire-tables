@@ -13,7 +13,7 @@
         ])
     >
         <button
-            {{ 
+            {{
                 $attributes->merge($this->getBulkActionsButtonAttributes)
                 ->class([
                     'btn dropdown-toggle d-block d-md-inline' => $component->isBootstrap() && $this->getBulkActionsButtonAttributes['default-styling'] ?? true,
@@ -21,12 +21,12 @@
                     'inline-flex justify-center w-full rounded-md border shadow-sm px-4 py-2 text-sm font-medium focus:ring focus:ring-opacity-50' => $component->isTailwind()  && $this->getBulkActionsButtonAttributes['default-styling'] ?? true,
 
                 ])
-                ->except('default') 
+                ->except('default')
             }}
             type="button"
-            id="{{ $tableName }}-bulkActionsDropdown" 
-            
-                        
+            id="{{ $tableName }}-bulkActionsDropdown"
+
+
             @if($component->isTailwind())
                         x-on:click="open = !open"
                         @else
@@ -36,10 +36,9 @@
 
             @lang('Bulk Actions')
             @if($component->isTailwind())
-                <x-heroicon-m-chevron-down class="-mr-1 ml-2 h-5 w-5" />
             @endif
         </button>
-        
+
         @if($component->isTailwind())
             <div
                 x-on:click.away="if (!childElementOpen) { open = false }"
@@ -54,13 +53,13 @@
                 class="origin-top-right absolute right-0 mt-2 w-full md:w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-50"
             >
                 <div
-                    {{ 
+                    {{
                         $attributes->merge($this->getBulkActionsMenuAttributes)
                         ->class([
                             'bg-white dark:bg-gray-700 dark:text-white' => $component->isTailwind() && $this->getBulkActionsMenuAttributes['default-colors'] ?? true,
                             'rounded-md shadow-xs' => $component->isTailwind() && $this->getBulkActionsMenuAttributes['default-styling'] ?? true,
                         ])
-                        ->except('default') 
+                        ->except('default')
                     }}
                 >
                     <div class="py-1" role="menu" aria-orientation="vertical">
@@ -73,13 +72,13 @@
                                 wire:key="{{ $tableName }}-bulk-action-{{ $action }}"
                                 type="button"
                                 role="menuitem"
-                                {{ 
+                                {{
                                     $attributes->merge($this->getBulkActionsMenuItemAttributes)
                                     ->class([
                                         'text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 dark:text-white dark:hover:bg-gray-600' => $component->isTailwind() && $this->getBulkActionsMenuItemAttributes['default-colors'] ?? true,
                                         'block w-full px-4 py-2 text-sm leading-5 focus:outline-none flex items-center space-x-2' => $component->isTailwind() && $this->getBulkActionsMenuItemAttributes['default-styling'] ?? true,
                                     ])
-                                    ->except('default') 
+                                    ->except('default')
                                 }}
                             >
                                 <span>{{ $title }}</span>
@@ -90,13 +89,13 @@
             </div>
         @else
             <div
-                {{ 
+                {{
                     $attributes->merge($this->getBulkActionsMenuAttributes)
                     ->class([
                         'dropdown-menu dropdown-menu-right w-100' => $component->isBootstrap4() && $this->getBulkActionsMenuAttributes['default-styling'] ?? true,
                         'dropdown-menu dropdown-menu-end w-100' => $component->isBootstrap5() && $this->getBulkActionsMenuAttributes['default-styling'] ?? true,
                     ])
-                    ->except('default') 
+                    ->except('default')
                 }}
                 aria-labelledby="{{ $tableName }}-bulkActionsDropdown"
             >
@@ -108,12 +107,12 @@
                         @endif
                         wire:click="{{ $action }}"
                         wire:key="{{ $tableName }}-bulk-action-{{ $action }}"
-                        {{ 
+                        {{
                             $attributes->merge($this->getBulkActionsMenuItemAttributes)
                                 ->class([
                                     'dropdown-item' => $component->isBootstrap() && $this->getBulkActionsMenuItemAttributes['default-styling'] ?? true,
                                 ])
-                                ->except('default') 
+                                ->except('default')
                         }}
                     >
                         {{ $title }}

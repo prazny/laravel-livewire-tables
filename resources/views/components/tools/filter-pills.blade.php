@@ -30,7 +30,7 @@
                             'badge rounded-pill bg-info d-inline-flex align-items-center' => $component->isBootstrap5(),
                         ])
                     >
-                        {{ $filter->getFilterPillTitle() }}: 
+                        {{ $filter->getFilterPillTitle() }}:
                         @php( $filterPillValue = $filter->getFilterPillValue($value))
                         @php( $separator = method_exists($filter, 'getPillsSeparator') ? $filter->getPillsSeparator() : ', ')
 
@@ -49,7 +49,6 @@
                                 class="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:outline-none focus:bg-indigo-500 focus:text-white"
                             >
                                 <span class="sr-only">@lang('Remove filter option')</span>
-                                <x-heroicon-m-x-mark class="h-2 w-2" />
                             </button>
                         @else
                             <a
@@ -65,7 +64,6 @@
                                 ])>
                                     @lang('Remove filter option')
                                 </span>
-                                <x-heroicon-m-x-mark class="laravel-livewire-tables-btn-tiny"  />
                             </a>
                         @endif
                     </span>

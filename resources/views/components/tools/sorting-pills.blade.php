@@ -25,7 +25,6 @@
                             class="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:outline-none focus:bg-indigo-500 focus:text-white"
                         >
                             <span class="sr-only">@lang('Remove sort option')</span>
-                            <x-heroicon-m-x-mark class="h-3 w-3" />
                         </button>
                     </span>
                 @endforeach
@@ -66,7 +65,6 @@
                             class="text-white ml-2"
                         >
                             <span class="sr-only">@lang('Remove sort option')</span>
-                            <x-heroicon-m-x-mark class="laravel-livewire-tables-btn-smaller" />
                         </a>
                     </span>
                 @endforeach
@@ -106,7 +104,6 @@
                             class="text-white ms-2"
                         >
                             <span class="visually-hidden">@lang('Remove sort option')</span>
-                            <x-heroicon-m-x-mark class="laravel-livewire-tables-btn-smaller" />
                         </a>
                     </span>
                 @endforeach
